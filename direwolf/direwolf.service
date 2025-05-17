@@ -1,0 +1,11 @@
+[Unit]
+Description=Direwolf
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/tmux new-session -d -s direwolf '/usr/local/bin/direwolf -c /home/pi/direwolf.conf'
+Restart=always
+
+[Install]
+WantedBy=default.target

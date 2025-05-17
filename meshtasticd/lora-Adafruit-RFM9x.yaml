@@ -1,0 +1,8 @@
+# This is the default config needed for the Adafruit RFM95x.
+# Place in /etc/meshtasticd/config.d/
+Lora:
+  Module: RF95  # Adafruit RFM9x
+  Reset: 25
+  CS: 7
+  IRQ: 22
+#  Busy: 23

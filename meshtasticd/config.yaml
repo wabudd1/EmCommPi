@@ -1,0 +1,61 @@
+# meshtasticd config.yaml edited by @wabudd1 / KQ4QEU
+# original defaults found at https://github.com/meshtastic/firmware/blob/master/bin/config-dist.yaml
+# This file belongs in /etc/meshtasticd/
+
+---
+Lora:
+  Module: auto
+
+#  Uncomment below to enable Simulation mode, or use --sim
+#  Module: sim
+
+### Set default/fallback gpio chip to use in /dev/. Defaults to 0.
+#  Note:  Latest raspbian has a symlink from gpiochip0 -> gpiochip4, so this setting has not been necessary - @wabudd1
+#  gpiochip: 4
+
+### Specify the SPI device to use in /dev/. Defaults to spidev0.0
+#  spidev: spidev0.0
+
+### Define GPIO buttons here:
+GPIO:
+# No GPIO buttons used in my configuration. - @wabudd1
+
+### Define GPS
+GPS:
+#  TODO:  gpsd is giving me difficulties with the USB GPS I have - @wabudd1
+#  SerialPath: /dev/ttyACM0
+
+### Specify I2C device, or leave blank for none
+I2C:
+#  I2CDevice: /dev/i2c-1
+
+### Set up SPI displays here. Note that I2C displays are generally auto-detected.
+Display:
+# No display used in my configuration. - @wabudd1
+
+Touchscreen:
+# No touchscreen used in my configuration - @wabudd1
+
+Input:
+# No keyboard/input used in my configuration - @wabudd1
+
+Logging:
+  LogLevel: info # debug, info, warn, error
+  TraceFile: /var/log/meshtasticd.json
+  AsciiLogs: true     # default if not specified is !isatty() on stdout
+
+Webserver:
+  # This is the default port when navigating to https://your.pi
+  # If you're running a normal website, you may want to change this port number to something else. - @wabudd1
+  Port: 443 # Port for Webserver & Webservices
+  RootPath: /usr/share/meshtasticd/web # Root Dir of WebServer
+  SSLKey: /etc/meshtasticd/ssl/private_key.pem # Path to SSL Key, generated if not present
+  SSLCert: /etc/meshtasticd/ssl/certificate.pem # Path to SSL Certificate, generated if not present
+
+General:
+  MaxNodes: 200
+  MaxMessageQueue: 1000
+  ConfigDirectory: /etc/meshtasticd/config.d/
+  AvailableDirectory: /etc/meshtasticd/available.d/
+#  MACAddress: AA:BB:CC:DD:EE:FF
+#  MACAddressSource: eth0

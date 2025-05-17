@@ -1,0 +1,3 @@
+/home/pi/radiopi-repo
+.yarn
+node_modules
